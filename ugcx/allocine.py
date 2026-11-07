@@ -123,6 +123,9 @@ def _poster(movie: dict) -> str | None:
         url = p.get("url") or p.get("path")
         if url and url.startswith("/"):
             url = "https://fr.web.img6.acsta.net" + url
+        # Vignette 310×420 plutôt que l'affiche pleine résolution.
+        if url and "acsta.net/" in url and "acsta.net/c_" not in url:
+            url = url.replace("acsta.net/", "acsta.net/c_310_420/", 1)
         return url
     return p if isinstance(p, str) else None
 
@@ -165,6 +168,13 @@ def _clean(s):
     return s[:400]
 
 
+# Formats utiles à l'utilisateur ; le reste (son 7.1, laser, 4K…) est ignoré.
+FORMATS = {
+    "F_3D": "3D", "3D": "3D", "F_35MM": "35mm", "F_70MM": "70mm", "IMAX": "IMAX", "F_IMAX": "IMAX",
+    "4DX": "4DX", "F_4DX": "4DX", "SCREENX": "ScreenX", "DOLBY_CINEMA": "Dolby Cinema",
+    "DOLBY_ATMOS": "Atmos", "ICE": "ICE", "INFINITE": "Infinite", "PLF": "Grand écran",
+}
+
 _VERSION = {"ORIGINAL": "VO", "LOCAL": "VF", "DUBBED": "VF", "ORIGINAL_SUBTITLED": "VO"}
 
 
@@ -189,9 +199,9 @@ def compact_showtimes(results: list[dict]) -> tuple[dict, list[dict]]:
                 for k in ("projection", "experience", "picture", "sound"):
                     v = s.get(k)
                     for x in (v if isinstance(v, list) else [v] if v else []):
-                        x = str(x).upper()
-                        if x not in ("DIGITAL", "2D", "NONE") and x not in fmt:
-                            fmt.append(x)
+                        label = FORMATS.get(str(x).upper())
+                        if label and label not in fmt:
+                            fmt.append(label)
                 url = None
                 for t in ((s.get("data") or {}).get("ticketing") or []):
                     if t.get("urls"):

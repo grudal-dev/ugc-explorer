@@ -13,11 +13,23 @@ ENDPOINTS = [
 
 
 def geocode(http, address: str, postcode: str, city: str) -> tuple[float, float] | None:
-    queries = [f"{address} {postcode} {city}".strip(), f"{postcode} {city}".strip()]
-    for q in queries:
+    # Le filtre par code postal échoue sur les codes CEDEX (92092 La Défense…) :
+    # on finit par des requêtes sans filtre.
+    queries = [
+        (f"{address} {postcode} {city}".strip(), postcode),
+        (f"{postcode} {city}".strip(), postcode),
+        (f"{address} {city}".strip(), None),
+        (city.replace("-", " ").strip(), None),
+    ]
+    for q, pc in queries:
+        if not q:
+            continue
         for url in ENDPOINTS:
+            params = {"q": q, "limit": 1}
+            if pc:
+                params["postcode"] = pc
             try:
-                resp = http.get(url, {"q": q, "postcode": postcode, "limit": 1})
+                resp = http.get(url, params)
                 if resp.status_code != 200:
                     continue
                 feats = resp.json().get("features") or []

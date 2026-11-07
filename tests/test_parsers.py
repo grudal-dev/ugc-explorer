@@ -80,7 +80,7 @@ def test_compact_showtimes():
                   "credits": [{"position": {"name": "DIRECTOR"}, "person": {"firstName": "Jane", "lastName": "Doe"}}]},
         "showtimes": {
             "original": [{"internalId": 1, "startsAt": "2026-11-07T20:00:00", "diffusionVersion": "ORIGINAL",
-                          "projection": ["DIGITAL"], "experience": ["IMAX"],
+                          "projection": ["DIGITAL", "F_35MM"], "experience": ["IMAX"], "sound": ["DOLBY_71"],
                           "data": {"ticketing": [{"urls": ["https://t/1"]}]}}],
             "local": [{"internalId": 2, "startsAt": "2026-11-07T14:00:00", "diffusionVersion": "LOCAL"}],
             "multiple": [{"internalId": 1, "startsAt": "2026-11-07T20:00:00", "diffusionVersion": "ORIGINAL"}],
@@ -88,7 +88,7 @@ def test_compact_showtimes():
     movies, shows = allocine.compact_showtimes(raw)
     assert movies["1001"]["directors"] == ["Jane Doe"] and movies["1001"]["rating"] == 4.1
     assert [(s["t"], s["v"]) for s in shows] == [("14:00", "VF"), ("20:00", "VO")]
-    assert shows[1]["f"] == ["IMAX"] and shows[1]["u"] == "https://t/1"
+    assert shows[1]["f"] == ["35mm", "IMAX"] and shows[1]["u"] == "https://t/1"
 
 
 def test_norm():

@@ -6,6 +6,7 @@
 <title>Illimité · autour de moi</title>
 <meta name="theme-color" content="#14110f">
 <link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎟</text></svg>">
 <style>
   :root{
     --bg:#14110f; --panel:#1d1916; --line:#2e2824; --ink:#f3ece4; --mute:#a3978b;
@@ -71,7 +72,7 @@
       <option value="20">20 km</option><option value="50">50 km</option>
     </select>
     <button class="chip" id="vo" aria-pressed="false">VO seulement</button>
-    <button class="chip" id="hidepast" aria-pressed="true">Masquer les séances passées</button>
+    <button class="chip" id="hidepast" aria-pressed="true">Masquer les passées</button>
     <select id="sort" class="chip" aria-label="Tri">
       <option value="next">Tri : prochaine séance</option>
       <option value="count">Tri : le plus diffusé</option>
@@ -180,7 +181,7 @@ function filmCard(f){
   const cines = [...f.cines.values()];
   const shown = cines.slice(0, 4), hidden = cines.length - shown.length;
   return `<article class="film">
-    ${m.poster ? `<img loading="lazy" src="${esc(m.poster)}" alt="">` : `<img alt="">`}
+    ${m.poster ? `<img loading="lazy" src="${esc(m.poster)}" alt="" onerror="this.removeAttribute('src')">` : `<img alt="">`}
     <div>
       <h2>${esc(m.title)}</h2>
       <div class="meta">${esc(meta)}${note}</div>
