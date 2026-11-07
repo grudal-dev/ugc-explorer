@@ -1,5 +1,5 @@
 {
- "resolvedAt": "2026-11-07T12:51:36+01:00",
+ "resolvedAt": "2026-11-07T12:58:16+01:00",
  "source": "https://www.ugc.fr/cinemas-acceptant-ui.html",
  "cinemas": [
   {
@@ -956,8 +956,8 @@
    "group": "UGC",
    "zone": "Région parisienne",
    "ugcUrl": "https://www.ugc.fr/cinema-ugc-cine-cite-la-defense.html",
-   "lat": null,
-   "lon": null,
+   "lat": 48.89048,
+   "lon": 2.238012,
    "allocine": "B2619",
    "allocineName": "UGC Ciné Cité La Défense",
    "matchScore": 1.3

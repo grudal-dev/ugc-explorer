@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-11-07T12:51:31+01:00",
+ "fetchedAt": "2026-11-07T12:58:15+01:00",
  "theaters": [
   {
    "id": "P0103",
@@ -3399,7 +3399,7 @@
   {
    "id": "C0120",
    "name": "Majestic Passy",
-   "address": "18, Rue de Passy 75016 Paris",
+   "address": "18 rue de Passy 75016 Paris",
    "postcode": "75016",
    "dept": "75"
   },

@@ -1,11 +1,11 @@
 # Rapport d'association UGC -> AlloCiné
 
-Généré le 2026-11-07T12:51:36+01:00
+Généré le 2026-11-07T12:58:16+01:00
 
 - Cinémas : 143
 - Non associés : 0
 - Associations à vérifier (score < 0,8) : 2
-- Non géocodés : 1
+- Non géocodés : 0
 
 ## À vérifier
 
