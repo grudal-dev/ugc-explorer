@@ -1,0 +1,65 @@
+name: Mise à jour des séances
+
+on:
+  schedule:
+    - cron: "23 4,10,15 * * *"   # ~5h, 11h, 16h à Paris (heure d'hiver)
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "auto = référentiel si > 7 jours puis séances ; all = tout refaire"
+        type: choice
+        options: [auto, all, resolve, scrape]
+        default: auto
+      limit:
+        description: "Ne traiter que N cinémas (vide = tous)"
+        required: false
+  push:
+    branches: [main]
+    paths: ["ugcx/**", "data/overrides.json", ".github/workflows/update.yml"]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency: { group: update, cancel-in-progress: false }
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: { python-version: "3.12", cache: pip }
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -q
+      - name: Collecte
+        run: |
+          CMD="${{ inputs.command || 'auto' }}"
+          LIMIT="${{ inputs.limit }}"
+          python -m ugcx "$CMD" ${LIMIT:+--limit "$LIMIT"}
+      - name: Enregistrer les données
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data docs/data
+          if ! git diff --cached --quiet; then
+            git commit -m "Données du $(TZ=Europe/Paris date +'%Y-%m-%d %H:%M')"
+            git pull --rebase origin main
+            git push
+          fi
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: docs }
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    continue-on-error: true   # tant que Pages n'est pas activé, la collecte reste verte
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

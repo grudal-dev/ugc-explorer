@@ -1,0 +1,9 @@
+{
+  "name": "Illimité · autour de moi",
+  "short_name": "Illimité",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#14110f",
+  "theme_color": "#14110f",
+  "lang": "fr"
+}

@@ -1,0 +1,6 @@
+{
+  "_doc": "Corrections manuelles. cinemas.<id>.allocine = code AlloCiné (ou null pour ignorer la salle) ; lat/lon pour forcer la position. exclude = ids à retirer ; extra = cinémas à ajouter (mêmes champs que data/cinemas.json).",
+  "cinemas": {},
+  "exclude": [],
+  "extra": []
+}

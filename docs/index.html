@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Illimité · autour de moi</title>
+<meta name="theme-color" content="#14110f">
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+  :root{
+    --bg:#14110f; --panel:#1d1916; --line:#2e2824; --ink:#f3ece4; --mute:#a3978b;
+    --accent:#e8b04b; --accent-ink:#1a1408; --vo:#7cc4b8; --radius:12px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  a{color:inherit}
+  header{position:sticky;top:0;z-index:5;background:rgba(20,17,15,.94);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);padding:10px 14px 8px}
+  h1{font-size:17px;margin:0 0 8px;letter-spacing:.2px}
+  h1 small{color:var(--mute);font-weight:400}
+  .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  button,select,input{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);
+    border-radius:999px;padding:7px 12px}
+  button{cursor:pointer}
+  button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+  input{border-radius:999px;min-width:0;flex:1}
+  .chips{display:flex;gap:6px;overflow-x:auto;padding:8px 0 2px;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{white-space:nowrap;padding:6px 11px;font-size:14px}
+  .chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .where{color:var(--mute);font-size:13px;margin-top:4px;min-height:18px}
+  main{padding:10px 12px 40px;max-width:760px;margin:0 auto}
+  .film{display:grid;grid-template-columns:78px 1fr;gap:12px;background:var(--panel);
+    border:1px solid var(--line);border-radius:var(--radius);padding:10px;margin:0 0 10px}
+  .film img{width:78px;height:104px;object-fit:cover;border-radius:8px;background:#2a2420}
+  .film h2{font-size:16px;margin:0 0 2px}
+  .meta{color:var(--mute);font-size:13px}
+  .cine{margin-top:8px}
+  .cine-name{font-size:13px;color:var(--mute);display:flex;justify-content:space-between;gap:8px}
+  .cine-name b{color:var(--ink);font-weight:500}
+  .times{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+  .t{display:inline-flex;align-items:baseline;gap:4px;text-decoration:none;font-variant-numeric:tabular-nums;
+    border:1px solid var(--line);border-radius:7px;padding:3px 7px;font-size:14px;background:#231e1a}
+  .t i{font-style:normal;font-size:11px;color:var(--mute)}
+  .t.vo i{color:var(--vo)}
+  .t.past{opacity:.35}
+  .more{grid-column:1/-1;font-size:13px;color:var(--mute);background:none;border:none;padding:4px 0;text-align:left}
+  .empty{color:var(--mute);text-align:center;padding:40px 10px}
+  .tag{display:inline-block;font-size:11px;border:1px solid var(--line);border-radius:5px;padding:0 5px;margin-left:4px;color:var(--mute)}
+  footer{color:var(--mute);font-size:12px;text-align:center;padding:20px 14px 40px;max-width:760px;margin:0 auto}
+  .suggest{position:absolute;left:14px;right:14px;background:var(--panel);border:1px solid var(--line);
+    border-radius:10px;margin-top:4px;max-height:240px;overflow:auto;z-index:9}
+  .suggest div{padding:8px 12px;cursor:pointer}
+  .suggest div:hover{background:#2a2420}
+</style>
+</head>
+<body>
+<header>
+  <h1>🎟 Illimité <small>· films accessibles avec la carte, autour de moi</small></h1>
+  <div class="row" style="position:relative">
+    <button class="primary" id="locate">📍 Me localiser</button>
+    <input id="place" placeholder="ou une ville, un code postal…" autocomplete="off">
+    <div class="suggest" id="suggest" hidden></div>
+  </div>
+  <div class="where" id="where"></div>
+  <div class="chips" id="days"></div>
+  <div class="chips">
+    <select id="radius" class="chip" aria-label="Rayon">
+      <option value="2">2 km</option><option value="5">5 km</option><option value="10" selected>10 km</option>
+      <option value="20">20 km</option><option value="50">50 km</option>
+    </select>
+    <button class="chip" id="vo" aria-pressed="false">VO seulement</button>
+    <button class="chip" id="hidepast" aria-pressed="true">Masquer les séances passées</button>
+    <select id="sort" class="chip" aria-label="Tri">
+      <option value="next">Tri : prochaine séance</option>
+      <option value="count">Tri : le plus diffusé</option>
+      <option value="rating">Tri : mieux noté</option>
+    </select>
+  </div>
+</header>
+<main id="list"><p class="empty">Chargement…</p></main>
+<footer id="foot"></footer>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const store = {
+  get(k, d){ try { const v = localStorage.getItem("ugcx:" + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+  set(k, v){ try { localStorage.setItem("ugcx:" + k, JSON.stringify(v)); } catch {} },
+};
+
+const state = {
+  meta: null, cinemas: [], movies: {}, shows: {},   // shows[allocineId] = {days:{date:[...]}}
+  pos: store.get("pos", null), radius: store.get("radius", 10), day: null,
+  vo: store.get("vo", false), hidePast: store.get("hidePast", true), sort: store.get("sort", "next"),
+};
+
+function km(a, b){
+  const R = 6371, r = x => x * Math.PI / 180;
+  const dLat = r(b.lat - a.lat), dLon = r(b.lon - a.lon);
+  const h = Math.sin(dLat/2)**2 + Math.cos(r(a.lat))*Math.cos(r(b.lat))*Math.sin(dLon/2)**2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+const fmtKm = d => d < 1 ? `${Math.round(d*1000/50)*50} m` : `${d.toFixed(d < 10 ? 1 : 0)} km`;
+const todayISO = () => new Date().toLocaleDateString("sv-SE", {timeZone: "Europe/Paris"});
+const nowHM = () => new Date().toLocaleTimeString("fr-FR", {timeZone: "Europe/Paris", hour: "2-digit", minute: "2-digit"});
+
+async function init(){
+  const [meta, cinemas, movies] = await Promise.all(
+    ["meta", "cinemas", "movies"].map(f => fetch(`data/${f}.json`, {cache: "no-cache"}).then(r => r.ok ? r.json() : null))
+  );
+  if (!meta || !cinemas){ $("#list").innerHTML = `<p class="empty">Données pas encore disponibles : le premier passage du collecteur n'a pas encore eu lieu.</p>`; return; }
+  Object.assign(state, {meta, cinemas: cinemas.filter(c => c.lat != null), movies: movies || {}});
+  const days = meta.days.filter(d => d >= todayISO());
+  state.day = days[0] || meta.days[0];
+  $("#days").innerHTML = days.map(d => {
+    const dt = new Date(d + "T12:00:00");
+    const label = d === todayISO() ? "Aujourd'hui" : dt.toLocaleDateString("fr-FR", {weekday: "short", day: "numeric", month: "short"});
+    return `<button class="chip" data-day="${d}" aria-pressed="${d === state.day}">${label}</button>`;
+  }).join("");
+  $("#radius").value = state.radius; $("#sort").value = state.sort;
+  $("#vo").setAttribute("aria-pressed", state.vo); $("#hidepast").setAttribute("aria-pressed", state.hidePast);
+  $("#foot").innerHTML = `${state.cinemas.length} cinémas acceptant la carte UGC Illimité (liste ugc.fr) · séances AlloCiné, mises à jour le
+    ${new Date(meta.updatedAt).toLocaleString("fr-FR", {dateStyle: "short", timeStyle: "short"})}.<br>
+    Projet indépendant, sans lien avec UGC. Vérifiez auprès de la salle : certains partenaires n'acceptent pas la carte dématérialisée et les séances spéciales peuvent être exclues.`;
+  if (state.pos) refresh(); else $("#list").innerHTML = `<p class="empty">Localisez-vous ou tapez une ville pour voir les films accessibles avec la carte autour de vous.</p>`;
+}
+
+function setPos(lat, lon, label){
+  state.pos = {lat, lon, label}; store.set("pos", state.pos); refresh();
+}
+
+function nearby(){
+  return state.cinemas.map(c => ({...c, dist: km(state.pos, c)}))
+    .filter(c => c.dist <= state.radius).sort((a, b) => a.dist - b.dist);
+}
+
+async function refresh(){
+  if (!state.pos) return;
+  const near = nearby();
+  $("#where").textContent = `${state.pos.label || "Votre position"} · ${near.length} cinéma${near.length > 1 ? "s" : ""} dans un rayon de ${state.radius} km`;
+  const missing = near.filter(c => c.allocine && !state.shows[c.allocine]);
+  if (missing.length) $("#list").innerHTML = `<p class="empty">Chargement des séances…</p>`;
+  await Promise.all(missing.map(c => fetch(`data/showtimes/${c.allocine}.json`).then(r => r.ok ? r.json() : {days: {}})
+    .catch(() => ({days: {}})).then(j => state.shows[c.allocine] = j)));
+  render(near);
+}
+
+function render(near){
+  const isToday = state.day === todayISO(), now = nowHM();
+  const films = new Map();
+  for (const c of near){
+    const list = state.shows[c.allocine]?.days?.[state.day] || [];
+    for (const s of list){
+      if (state.vo && s.v !== "VO") continue;
+      const past = isToday && s.t < now;
+      if (past && state.hidePast) continue;
+      if (!films.has(s.m)) films.set(s.m, {id: s.m, cines: new Map(), count: 0, next: "99:99"});
+      const f = films.get(s.m);
+      if (!f.cines.has(c.id)) f.cines.set(c.id, {c, shows: []});
+      f.cines.get(c.id).shows.push({...s, past});
+      f.count++; if (!past && s.t < f.next) f.next = s.t;
+    }
+  }
+  const arr = [...films.values()];
+  const rating = f => state.movies[f.id]?.rating ?? 0;
+  arr.sort(state.sort === "count" ? (a, b) => b.count - a.count
+         : state.sort === "rating" ? (a, b) => rating(b) - rating(a) || b.count - a.count
+         : (a, b) => a.next.localeCompare(b.next) || b.count - a.count);
+  if (!near.length){ $("#list").innerHTML = `<p class="empty">Aucun cinéma acceptant la carte dans ce rayon. Essayez un rayon plus large.</p>`; return; }
+  if (!arr.length){ $("#list").innerHTML = `<p class="empty">Pas de séance trouvée pour ce jour avec ces filtres.</p>`; return; }
+  $("#list").innerHTML = arr.map(filmCard).join("");
+}
+
+function filmCard(f){
+  const m = state.movies[f.id] || {title: "Film " + f.id};
+  const meta = [m.runtime, (m.genres || []).join(", "), m.directors?.length ? "de " + m.directors.join(", ") : ""].filter(Boolean).join(" · ");
+  const note = m.rating ? ` · ★ ${m.rating.toFixed(1)}` : "";
+  const cines = [...f.cines.values()];
+  const shown = cines.slice(0, 4), hidden = cines.length - shown.length;
+  return `<article class="film">
+    ${m.poster ? `<img loading="lazy" src="${esc(m.poster)}" alt="">` : `<img alt="">`}
+    <div>
+      <h2>${esc(m.title)}</h2>
+      <div class="meta">${esc(meta)}${note}</div>
+      ${shown.map(cineBlock).join("")}
+      ${hidden ? `<button class="more" data-film="${esc(f.id)}">+ ${hidden} autre${hidden > 1 ? "s" : ""} cinéma${hidden > 1 ? "s" : ""}</button>` : ""}
+    </div>
+  </article>`;
+}
+
+function cineBlock({c, shows}){
+  const link = s => s.u || `https://www.allocine.fr/seance/salle_gen_csalle=${c.allocine}.html`;
+  return `<div class="cine">
+    <div class="cine-name"><b>${esc(c.name)}${c.group !== "UGC" ? `<span class="tag">${esc(c.group)}</span>` : ""}</b><span>${fmtKm(c.dist)}</span></div>
+    <div class="times">${shows.map(s => `<a class="t ${s.v === "VO" ? "vo" : ""} ${s.past ? "past" : ""}" href="${esc(link(s))}" target="_blank" rel="noopener">${s.t}<i>${s.v}${s.f?.length ? " " + esc(s.f.join(" ")) : ""}</i></a>`).join("")}</div>
+  </div>`;
+}
+
+// --- Interactions -------------------------------------------------------
+$("#locate").onclick = () => {
+  if (!navigator.geolocation){ $("#where").textContent = "Géolocalisation indisponible : tapez une ville."; return; }
+  $("#where").textContent = "Localisation…";
+  navigator.geolocation.getCurrentPosition(
+    p => setPos(p.coords.latitude, p.coords.longitude, "Votre position"),
+    () => { $("#where").textContent = "Position refusée ou indisponible : tapez une ville."; },
+    {enableHighAccuracy: false, timeout: 10000, maximumAge: 300000});
+};
+
+let timer;
+$("#place").oninput = e => {
+  clearTimeout(timer);
+  const q = e.target.value.trim();
+  if (q.length < 2){ $("#suggest").hidden = true; return; }
+  timer = setTimeout(() => suggest(q), 250);
+};
+async function suggest(q){
+  let items = [];
+  try {
+    const r = await fetch(`https://data.geopf.fr/geocodage/search?q=${encodeURIComponent(q)}&limit=6&type=municipality`);
+    const j = await r.json();
+    items = (j.features || []).map(f => ({label: `${f.properties.city || f.properties.label} (${f.properties.postcode})`,
+      lat: f.geometry.coordinates[1], lon: f.geometry.coordinates[0]}));
+  } catch {
+    // Hors ligne ou API indisponible : on cherche parmi les villes des cinémas connus.
+    const nq = q.toLowerCase();
+    const seen = new Set();
+    for (const c of state.cinemas){
+      const key = `${c.city} (${c.postcode})`;
+      if ((c.city.toLowerCase().includes(nq) || c.postcode.startsWith(q)) && !seen.has(key)){ seen.add(key); items.push({label: key, lat: c.lat, lon: c.lon}); }
+    }
+    items = items.slice(0, 6);
+  }
+  const box = $("#suggest");
+  box.innerHTML = items.map((it, i) => `<div data-i="${i}">${esc(it.label)}</div>`).join("") || `<div>Aucun résultat</div>`;
+  box.hidden = false;
+  box.onclick = ev => {
+    const it = items[ev.target.dataset.i]; if (!it) return;
+    box.hidden = true; $("#place").value = it.label; setPos(it.lat, it.lon, it.label);
+  };
+}
+document.addEventListener("click", e => { if (!e.target.closest("#suggest, #place")) $("#suggest").hidden = true; });
+
+$("#days").onclick = e => {
+  const d = e.target.dataset.day; if (!d) return;
+  state.day = d;
+  document.querySelectorAll("#days .chip").forEach(b => b.setAttribute("aria-pressed", b.dataset.day === d));
+  if (state.pos) render(nearby());
+};
+$("#radius").onchange = e => { state.radius = +e.target.value; store.set("radius", state.radius); refresh(); };
+$("#sort").onchange = e => { state.sort = e.target.value; store.set("sort", state.sort); if (state.pos) render(nearby()); };
+for (const [id, key] of [["vo", "vo"], ["hidepast", "hidePast"]]){
+  $("#" + id).onclick = e => {
+    state[key] = !state[key]; store.set(key, state[key]);
+    e.target.setAttribute("aria-pressed", state[key]); if (state.pos) render(nearby());
+  };
+}
+$("#list").onclick = e => {
+  const id = e.target.dataset?.film; if (!id) return;
+  const near = nearby(); const isToday = state.day === todayISO(), now = nowHM();
+  const blocks = near.map(c => ({c, shows: (state.shows[c.allocine]?.days?.[state.day] || [])
+      .filter(s => s.m === id && (!state.vo || s.v === "VO"))
+      .map(s => ({...s, past: isToday && s.t < now})).filter(s => !(s.past && state.hidePast))}))
+    .filter(b => b.shows.length);
+  e.target.outerHTML = blocks.slice(4).map(cineBlock).join("");
+};
+
+init();
+</script>
+</body>
+</html>
