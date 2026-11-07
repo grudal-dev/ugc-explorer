@@ -115,6 +115,74 @@ def _zone_for(el: Tag) -> str:
 
 
 def parse(html: str) -> list[dict]:
+    """Balisage réel d'ugc.fr d'abord, parseur générique en secours."""
+    cinemas = parse_structured(html)
+    if len(cinemas) >= 20:
+        return cinemas
+    log.warning("Balisage ugc.fr inattendu (%d fiches .item--cinema) : parseur générique", len(cinemas))
+    return parse_generic(html)
+
+
+def _title(s: str) -> str:
+    return " ".join(s.split()).strip()
+
+
+def parse_structured(html: str) -> list[dict]:
+    """Fiches `.item--cinema-content` : 1re div = nom, 2e div = rue<br>CP VILLE.
+
+    Elles sont rangées dans des blocs repliables `#classic-rN` (cinémas UGC),
+    `#partner-rN` (partenaires) ou `#region-N` (une métropole de province).
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    out: dict[str, dict] = {}
+    for item in soup.select(".item--cinema-content"):
+        divs = item.find_all("div", recursive=False)
+        if len(divs) < 2:
+            continue
+        name = _title(divs[0].get_text(" "))
+        parsed = _split_entry([name] + _lines(divs[1]))
+        if not parsed:
+            continue
+        name, address, postcode, city = parsed
+        a = item.find_parent("a", href=True)
+        href = a["href"] if a else None
+        if href and not href.startswith("http"):
+            href = "https://www.ugc.fr/" + href.lstrip("/")
+        box = item.find_parent(id=re.compile(r"^(classic|partner|region)-"))
+        box_id = box["id"] if box else ""
+        if box_id.startswith("classic"):
+            group = "UGC"
+        elif box_id.startswith("partner"):
+            group = "mk2" if norm(name).startswith("mk2") else "Partenaire"
+        else:
+            group = _group(name, href)
+        zone = ""
+        if box_id.startswith("region"):
+            ctl = soup.find("a", attrs={"aria-controls": box_id})
+            zone = _title(ctl.get_text(" ")) if ctl else ""
+        elif box is not None:
+            h2 = box.find_previous("h2")
+            zone = _title(h2.get_text(" ")) if h2 else ""
+        key = f"{norm(name)}|{postcode}"
+        if key in out:
+            continue
+        out[key] = {
+            "id": slug(f"{name} {postcode}"),
+            "name": _pretty(name),
+            "address": address,
+            "postcode": postcode,
+            "city": city,
+            "dept": departement(postcode),
+            "group": group,
+            "zone": zone.title() if zone.isupper() else zone,
+            "ugcUrl": href if href and "ugc.fr" in href else None,
+        }
+    cinemas = list(out.values())
+    log.info("ugc.fr : %d cinémas lus (%s)", len(cinemas), _counts(cinemas))
+    return cinemas
+
+
+def parse_generic(html: str) -> list[dict]:
     soup = BeautifulSoup(html, "html.parser")
     for junk in soup.find_all(["script", "style", "noscript", "header", "footer", "nav", "form"]):
         junk.decompose()

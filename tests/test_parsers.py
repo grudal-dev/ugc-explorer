@@ -94,3 +94,53 @@ def test_compact_showtimes():
 def test_norm():
     assert norm("Ciné Cité  Bercy !") == "cine cite bercy"
     assert date(2026, 1, 1)
+
+
+REAL_MARKUP = """
+<h2 class="color--dark-blue">Paris</h2>
+<a href="#classic-r1" aria-controls="classic-r1" class="accordion-title"><span>Cinémas UGC</span></a>
+<div class="row collapse" id="classic-r1">
+ <div class="col"><a href="cinema-ugc-cine-cite-bercy.html"><div class="item--cinema">
+  <div class="item--cinema-content text-center">
+   <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Bercy</div>
+   <div class="color--blue-grey">2, cour Saint Emilion<br>75012&nbsp;PARIS</div>
+  </div></div></a></div>
+</div>
+<a href="#partner-r1" aria-controls="partner-r1" class="accordion-title"><span>Cinémas partenaires</span></a>
+<div class="row collapse" id="partner-r1">
+ <div class="item--cinema"><div class="item--cinema-content">
+   <div class="color--white text-uppercase">MK2 BEAUBOURG</div>
+   <div class="color--blue-grey">50, rue Rambuteau<br>75003&nbsp;PARIS</div></div></div>
+</div>
+<a href="#region-3" aria-controls="region-3" class="accordion-title"><span class="text-uppercase">Bordeaux</span></a>
+<div class="row collapse" id="region-3">
+ <div class="item--cinema"><div class="item--cinema-content">
+   <div class="color--white text-uppercase">GRAND ÉCRAN LIBOURNE</div>
+   <div class="color--blue-grey">56 avenue Gallieni<br>33500&nbsp;LIBOURNE</div></div></div>
+</div>
+"""
+
+
+def test_ugc_structured_markup():
+    cs = {c["name"]: c for c in ugc.parse_structured(REAL_MARKUP)}
+    b = cs["UGC Ciné Cité Bercy"]
+    assert (b["group"], b["zone"], b["city"], b["address"]) == ("UGC", "Paris", "Paris", "2, cour Saint Emilion")
+    assert b["ugcUrl"] == "https://www.ugc.fr/cinema-ugc-cine-cite-bercy.html"
+    assert cs["MK2 Beaubourg"]["group"] == "mk2"
+    lib = cs["Grand Écran Libourne"]
+    assert (lib["group"], lib["zone"], lib["postcode"]) == ("Partenaire", "Bordeaux", "33500")
+
+
+def test_assign_unique_and_same_street():
+    ts = [
+        {"id": "P0086", "name": "UGC Ciné Cité Lille", "address": "40 rue de Béthune 59800 Lille", "postcode": "59800", "dept": "59"},
+        {"id": "P0001", "name": "Majestic Lille", "address": "54 rue de Béthune 59000 Lille", "postcode": "59000", "dept": "59"},
+        {"id": "P0170", "name": "Limoges Centre", "address": "11, place Denis-Dussoubs 87000 Limoges", "postcode": "87000", "dept": "87"},
+    ]
+    cs = [
+        {"id": "a", "name": "UGC Ciné Cité Lille", "address": "40 rue de Béthune", "postcode": "59000", "dept": "59"},
+        {"id": "b", "name": "Le Majestic", "address": "54 rue de Béthune", "postcode": "59000", "dept": "59"},
+        {"id": "c", "name": "Horizon Grand Ecran", "address": "9 - 11, Place Denis Dussoubs", "postcode": "87100", "dept": "87"},
+    ]
+    res = match.assign(cs, ts)
+    assert {k: v[0]["id"] for k, v in res.items()} == {"a": "P0086", "b": "P0001", "c": "P0170"}

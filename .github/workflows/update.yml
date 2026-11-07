@@ -36,7 +36,7 @@ jobs:
       - run: python -m pytest -q
       - name: Collecte
         run: |
-          CMD="${{ inputs.command || 'auto' }}"
+          CMD="${{ inputs.command || (github.event_name == 'push' && 'all') || 'auto' }}"
           LIMIT="${{ inputs.limit }}"
           python -m ugcx "$CMD" ${LIMIT:+--limit "$LIMIT"}
       - name: Enregistrer les données

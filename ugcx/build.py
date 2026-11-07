@@ -91,6 +91,9 @@ def resolve(http: Http | None = None) -> list[dict]:
 
     # Association
     by_id = {t["id"]: t for t in theaters}
+    forced = {ov["allocine"] for ov in overrides.get("cinemas", {}).values() if ov.get("allocine")}
+    auto = match.assign([c for c in cinemas if "allocine" not in overrides.get("cinemas", {}).get(c["id"], {})],
+                        [t for t in theaters if t["id"] not in forced])
     for c in cinemas:
         ov = overrides.get("cinemas", {}).get(c["id"], {})
         if "allocine" in ov:
@@ -98,10 +101,18 @@ def resolve(http: Http | None = None) -> list[dict]:
             c["allocineName"] = by_id.get(ov["allocine"] or "", {}).get("name")
             c["matchScore"] = "manuel"
             continue
-        best, s = match.best_match(c, theaters)
+        best, s = auto[c["id"]]
         c["allocine"] = best["id"] if best else None
         c["allocineName"] = best["name"] if best else None
         c["matchScore"] = s
+
+    # Dernier recours pour la position : l'adresse AlloCiné de la salle.
+    for c in cinemas:
+        t = by_id.get(c.get("allocine") or "")
+        if c.get("lat") is None and t:
+            ll = geo.geocode(http, t["address"].replace(t.get("postcode", ""), " "), t.get("postcode", ""), "")
+            if ll:
+                c["lat"], c["lon"] = ll
 
     _dump(DATA / "cinemas.json", {"resolvedAt": now(), "source": ugc.URL, "cinemas": cinemas})
     _write_report(cinemas)
