@@ -1,0 +1,4331 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="fr">
+<head>
+	
+	
+
+
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="language" content="fr-FR">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
+<meta name="theme-color" content="#ffffff">
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-icon-180x180.png">
+
+
+
+<link rel="manifest" href="./assets/favicon/manifest.json">
+<link rel="icon" type="image/png" sizes="192x192"  href="./assets/favicon/android-icon-192x192.png">
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" sizes="48x48" href="./assets/favicon/favicon.ico">
+
+
+
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png">
+<meta name="msapplication-config" content="./assets/favicon/browserconfig.xml" />
+
+
+
+
+
+
+
+
+        <script type="text/javascript" src="/struts/js/base/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="/struts/js/base/jquery-ui.min.js?s2j=4.0.7"></script>
+            <script type="text/javascript"
+                    src="/struts/i18n/datepicker-fr.min.js?s2j=4.0.7"></script>
+<script type="text/javascript" src="/struts/js/plugins/jquery.form.min.js?s2j=4.0.7"></script>
+<script type="text/javascript" src="/struts/js/plugins/jquery.subscribe.min.js?s2j=4.0.7"></script>
+
+<script type="text/javascript" src="/struts/js/struts2/jquery.struts2.min.js?s2j=4.0.7"></script>
+
+<script type="text/javascript">
+    $(function () {
+        jQuery.struts2_jquery.version = "4.0.7";
+        jQuery.struts2_jquery.loadAtOnce = true;
+        jQuery.scriptPath = "/struts/";
+        jQuery.struts2_jquery.local = "fr";
+        jQuery.struts2_jquery.gridLocal = "fr";
+        jQuery.struts2_jquery.timeLocal = "fr";
+        jQuery.struts2_jquery.datatablesLocal = "fr";
+        jQuery.ajaxSettings.traditional = true;
+
+        jQuery.ajaxSetup({
+            cache: true
+        });
+
+        jQuery.struts2_jquery.require("js/struts2/jquery.ui.struts2.min.js?s2j=4.0.7");
+
+    });
+</script>
+
+    <link id="jquery_theme_link" rel="stylesheet"
+          href="/struts/themes/smoothness/jquery-ui.css?s2j=4.0.7" type="text/css"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var dataLayer = [];
+
+    dataLayer.push('js', new Date());
+    dataLayer.push('config', 'GTM-NKL822', { 'anonymize_ip' : true});
+</script>
+
+
+
+
+    
+    <link rel="stylesheet" href="./lib/hagreed/css/default.css?version=14.39.1-rc1"></link>
+    <link rel="stylesheet" href="./lib/hagreed/css/hagreed.css?version=14.39.1-rc1"></link>
+    <script  type="text/javascript" src="./lib/hagreed/js/hagreed.js?version=14.39.1-rc1" charset="UTF-8" ></script>
+
+    
+        <script id="hagreedinitjs" type="text/javascript" src="./lib/hagreed/js/hagreed.init_fr.js?version=14.39.1-rc1" charset="UTF-8" data-token="c049987f-2648-4f83-b33f-b5610070dd85-984604a9-f11e-4546-aebd-c547b47a01e9" ></script>
+    
+    
+    
+
+    
+    <script type="hagreed/javascript" data-consent="hagreed:prehome_ugc">
+        $(document).ready(function() {
+			getAdvertising('INTERSTITIEL', 'body');
+		});
+    </script>
+    
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    // Récupération des informations liées au datalayer
+    $(document).ready(function() {
+        let filmId = (typeof ugcFilmId !== 'undefined') ? ugcFilmId : '';
+        let cinemaId = (typeof ugcCinemaId !== 'undefined') ? ugcCinemaId : '';
+        $.ajax({
+            type: 'POST',
+            url : 'analyticsAjaxAction!retrieveDataLayerInformations',
+            data: $.param({ filmId: filmId, cinemaId : cinemaId }) ,
+            async : true,
+            success : function(response) {
+                if(response == undefined) {
+                    return;
+                }
+
+                Array.prototype.push.apply(dataLayer, response.dataLayer);
+
+                <!-- Debug Google Tag Manager -->
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NKL822');
+                <!-- End Google Tag Manager -->
+  
+                
+                <!-- Debut MATOMO -->
+                var _mtm = window._mtm = window._mtm || [];
+                _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
+                var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+                g.async = true;
+                g.src = 'https://yoda.ugc.fr/js/container_BvdUBgTc.js';
+                s.parentNode.insertBefore(g, s);
+                <!-- Fin MATOMO -->
+	            
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="./assets/fonts/ugc-icons/style.css?version=14.39.1-rc1"></link>
+<link rel="stylesheet" href="./lib/multiple-select/dist/multiple-select.min.css?version=14.39.1-rc1"></link>
+<link rel="stylesheet" href="./css/application.css?version=14.39.1-rc1"></link>
+
+
+
+
+    <link rel="canonical" href="https://www.ugc.fr/cinemas-acceptant-ui.html">
+
+
+
+
+
+
+
+
+
+
+<meta property="og:image" itemprop="image" content="https://www.ugc.fr/assets/img/logo-ugc.jpg">
+
+
+
+<link rel="stylesheet" href="./lib/fontawesome/css/all.min.css?version=14.39.1-rc1"></link>
+
+
+
+<script type="text/javascript">
+    // Récupération des informations liées au datalayer
+    $(document).ready(function() {
+        let tags = {"tags":[]};
+        if(tags) dataLayer.push(tags);
+    });
+</script>
+
+
+
+
+
+
+	
+	
+
+	<title>
+		
+	</title>
+</head>
+
+<body>
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Header (non affiché pour les apps et iframe) -->
+
+	<header id="headerTop" class="headerTop">
+		<!-- logo + 1st menu -->
+		<div id="preheader">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 offset-md-1">
+						<div class="d-flex align-items-center flex-wrap justify-content-between">
+							
+							<a href="/" class="main-logo"><img src="assets/img/logo-ugc-cyan-blanc.png" alt="UGC" /></a>
+
+							<ul id="header-menu-mobile" class="list-inline mb-0 d-md-none">
+								<li class="list-inline-item">
+									<a href="films.html" class="color--dark-blue ">
+										<span class="text-uppercase">Films</span>
+									</a>
+								</li>
+
+								<li class="list-inline-item">
+									<a href="cinemas.html" class="color--dark-blue ">
+										<span class="text-uppercase">Cinémas</span>
+									</a>
+								</li>
+								<li class="list-inline-item">
+									<!-- Régie publicitaire -->
+										<div class="advertising-header"></div>
+									<!-- /Régie publicitaire -->
+								</li>
+                            </ul>
+
+							<ul id="header-menu-icons" class="list-inline mb-0 d-md-none">
+								<li class="list-inline-item">
+									<a href="#" class="color--main-blue d-inline-block" data-toggle="modal" data-target="#modal-global-search">
+										<i class="d-block icon-recherche"></i>
+										<span class="sr-only">Rechercher</span>
+									</a>
+								</li>
+								<li class="list-inline-item">
+									<a href="profil.html" class="color--main-blue d-inline-block">
+										<i class="icon-profil"></i>
+										<span class="sr-only">Mon Compte</span>
+									</a>
+								</li>
+
+								<li class="list-inline-item mobile-menu-button">
+									<a href="#" class="color--main-blue d-inline-block" data-toggle="modal" data-target="#modal-menu-mobile">
+										<i class="icon-burger-menu"></i>
+										<span class="sr-only">Menu</span>
+									</a>
+								</li>
+							</ul>
+
+							<ul id="header-menu" class="list-inline mb-0 d-none d-md-block">
+								<li class="list-inline-item">
+									<a href="#" class="text-center color--main-blue" data-toggle="modal" data-target="#modal-global-search">
+										<i class="d-block icon-recherche"></i>
+										<span class="text-uppercase">Rechercher</span>
+									</a>
+								</li>
+
+								<li class="list-inline-item">
+									<a href="profil.html" class="text-center color--main-blue">
+										<i class="d-block icon-profil"></i>
+										<span class="text-uppercase">Mon Compte</span>
+									</a>
+								</li>
+
+								
+								
+									
+								
+
+
+
+<li class="list-inline-item">
+<a href="les-offres-ugc-illimite.html" class="text-center color--main-blue">
+<i class="d-block icon-ugc-illimite"></i>
+<span class="text-uppercase">UGC illimité</span>
+</a>
+</li>
+
+<li class="list-inline-item">
+<a href="les-offres-ugc.html" class="text-center color--main-blue">
+<i class="d-block icon-cartes-et-offres"></i>
+<span class="text-uppercase">Cartes &#38; offres</span>
+</a>
+</li>
+
+
+<li class="list-inline-item">
+<a href="passculture.html" class="text-center color--main-blue">
+<i class="d-block icon-pass-culture"></i>
+</a>
+</li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /logo + 1st menu -->
+
+		<!-- Main navigation -->
+		<nav class="bg--light-grey d-none d-md-block">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 offset-md-1 d-flex align-items-center">
+						<ul class="list-inline mb-0 mr-auto main-nav">
+							<li class="list-inline-item text-uppercase">
+								<a class="color--dark-blue " href="cinemas.html">Cinémas</a>
+							</li>
+							<li class="list-inline-item text-uppercase">
+								<a class="color--dark-blue " href="films.html">Films</a>
+							</li>
+							
+								<li class="list-inline-item text-uppercase">
+									<a class="color--dark-blue " href="labels-et-selections.html">Labels & sélections</a>
+								</li>
+							
+							
+							<li class="list-inline-item text-uppercase">
+								<a class="color--dark-blue " href="films.html?filter=ugcFamily">En Famille</a>
+							 </li>
+							<li class="list-inline-item text-uppercase">
+								<a class="color--dark-blue " href="evenements.html">Événements</a>
+							</li>
+							
+								<li class="list-inline-item text-uppercase">
+									<a class="color--dark-blue " href="vivalopera.html">Viva l'Opéra</a>
+								</li>
+								<li class="list-inline-item text-uppercase">
+									<a class="color--dark-blue " href="news.html">News</a>
+								</li>
+								<li class="list-inline-item text-uppercase">
+									<a class="color--dark-blue " href="le-mag-by-ugc.html">
+										<i class="d-block icon-extra-logo-mag"></i>
+									</a>
+								</li>
+							
+							<li class="list-inline-item">
+							<!-- Régie publicitaire -->
+								<div class="advertising-header"></div>
+							<!-- /Régie publicitaire -->
+							</li>
+						</ul>
+
+						
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- Main navigation -->
+	</header>
+
+<!-- /Header -->
+
+
+	<main>
+		
+		
+
+
+
+
+
+<!-- Header Main (non affiché pour les apps et iframe) -->
+
+
+    <!-- Modal: menu mobile -->
+    <div class="modal fade fullscreen-modal" id="modal-menu-mobile" tabindex="-1" role="dialog" aria-labelledby="modal-menu-mobile-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content bg--white color--white">
+                <div class="modal-header sticky bg--white">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1 d-flex align-items-center justify-content-between">
+                                <div>
+                                <span class="color--dark-blue text-uppercase" id="modal-menu-mobile-title">Menu</span>
+								</div>
+                                 <div class="d-flex justify-content-end align-items-center">
+	                                <div>
+		                                <button type="button" class="close color--dark-blue" data-dismiss="modal" aria-label="Fermer">
+		                                    <span aria-hidden="true"><i class="icon-close"></i></span>
+		                                </button>
+	                                </div>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="main-links bg--grey">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <ul class="mb-0">
+                                        
+                                        
+                                            
+                                        
+
+
+
+<style>
+.liBottomSeparator {
+        width: 50%;
+        border-bottom: 1px solid grey;
+        padding-top:10px;
+        padding-bottom:10px;
+        margin-bottom:-10px;
+}
+</style>
+
+<ul>
+	<li class="text-uppercase"><a class="color--dark-blue" href="les-offres-ugc-illimite.html" target="">UGC ILLIMITÉ</a></li>
+	<li class="text-uppercase"><a class="color--dark-blue" href="les-offres-ugc.html">Cartes &#38; Offres</a></li>
+	<li class="text-uppercase"><a class="color--dark-blue" href="passCulture.html">Pass Culture</a><div class="liBottomSeparator"></div></li>
+	<li class="text-uppercase"><a class="color--dark-blue" href="labels-et-selections.html">Labels &#38;  sélections</a></li>
+	<li class="text-uppercase"><a class="color--dark-blue" href="films.html?filter=ugcFamily">En famille</a></li>
+	<li class="text-uppercase"><a class="color--dark-blue" href="evenements.html">Événements</a></li>
+	<li class="text-uppercase"><a class="color--dark-blue" href="vivalopera.html">Viva l'Opéra</a></li>
+	<li class="text-uppercase"><a class="color--dark-blue" href="news.html">News</a></li>
+	<li class="text-uppercase"><a class="color--dark-blue" href="le-mag-by-ugc.html"><i class="d-block icon-extra-logo-mag"></i></a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Modal: menu mobile -->
+
+<!-- /Header Main -->
+
+
+		<!-- Recherche -->
+		
+
+
+
+
+
+
+<script type="text/javascript">
+    let minCharactersForSearch = 2;
+    	
+    $(document).ready(function(){
+    	
+        $('#modal-global-search').on('shown.bs.modal', function () {
+        	$('#previewSearchKey').trigger('focus')
+        })
+    	
+        // Affichage de la preview
+        $.unsubscribe('showSearchPreview');
+        $.subscribe("showSearchPreview", function(event) {
+            $.publish('reloadPreviewResults');
+        });
+
+        // Affichage des résultats
+        $.unsubscribe('showSearchResults');
+        $.subscribe("showSearchResults", function(event, previewSearchValue) {
+            // Récupération du formulaire d'affichage des résultats
+            let enterSearchForm = document.getElementById('enterSearchForm');
+
+            // Mise à jour de la valeur de recherche
+            $('#enterSearchKey').val(previewSearchValue);
+
+            // Envoi du formulaire d'affichage des résultats
+            enterSearchForm.submit();
+        });
+
+        // Execution de la recherche
+        $.unsubscribe('executeSearch');
+        $.subscribe("executeSearch", function(event, onkeyupEvent) {
+            let previewSearchValue = $('#previewSearchKey').val();
+
+            // Controle de la taille de la recherche
+            if(previewSearchValue.length == 0 || previewSearchValue.length >= minCharactersForSearch) {
+                let character = onkeyupEvent.which || onkeyupEvent.keyCode;
+
+                if(character == 13 && previewSearchValue.trim().length > 0) {
+                    $.publish("showSearchResults", previewSearchValue);
+                } else {
+                    $.publish("showSearchPreview");
+                }
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal: global search -->
+<div class="modal fade fullscreen-modal" id="modal-global-search" tabindex="-1" role="dialog" aria-labelledby="modal-global-search-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content bg--light-grey">
+            <div class="modal-header sticky no-sticky-md bg--white">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 offset-lg-1 d-flex align-items-center">
+                            <h5 class="color--dark-blue d-block d-md-none text-uppercase" id="modal-global-search-title"> Recherche</h5>
+
+                            <button type="button" class="close color--dark-blue" data-dismiss="modal" aria-label="Fermer">
+                                <span aria-hidden="true"><i class="icon-close"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <!-- Component: search bar big -->
+                <div class="component--search-bar-big">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                
+
+                                        
+<form id="previewSearchForm" name="previewSearchForm" onsubmit="return false;" action="/searchAjaxAction.action" method="post">
+                                    <input type="hidden" name="page" value="30004" id="previewSearchForm_page"/>
+
+                                    <input type="text" name="searchKey" value="" id="previewSearchKey" onkeyup="javascript:$.publish('executeSearch', event);" placeholder="Rechercher un film, un cinéma, ..."/>
+                                </form>
+
+
+
+
+                                <form id="enterSearchForm" name="enterSearchForm" action="/searchAction.action" method="post" style="display:none;">
+                                    <input type="hidden" name="page" value="30004" id="enterSearchForm_page"/>
+                                    <input type="hidden" name="searchKey" value="" id="enterSearchKey"/>
+                                </form>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Component: search bar big -->
+
+                <!-- Résultats -->
+                
+                <div id="previewResultsDiv"
+
+
+
+
+></div>
+<script type='text/javascript'>
+jQuery(document).ready(function () { 
+	var options_previewResultsDiv = {};
+	options_previewResultsDiv.jqueryaction = "container";
+	options_previewResultsDiv.id = "previewResultsDiv";
+	options_previewResultsDiv.onsuc = "reloadLozad,handleCinemaFavoris";
+	options_previewResultsDiv.href = "/searchAjaxAction!getPreviewResults.action";
+	options_previewResultsDiv.formids = "previewSearchForm";
+    options_previewResultsDiv.loadingtext = "<div id='spinnerDiv' class='spinner-alteis-div'><div class='spinner-alteis spinner-alteis-big' role='status'><span class='sr-only'>En cours de chargement...</span></div><div class='spinner-alteis spinner-alteis-big' role='status'><span class='sr-only'>Loading...</span></div><div class='spinner-alteis spinner-alteis-big' role='status'><span class='sr-only'>En cours de chargement...</span></div></div>";
+	options_previewResultsDiv.datatype = "html";
+	options_previewResultsDiv.requesttype = "GET";
+	options_previewResultsDiv.listentopics = "reloadPreviewResults";
+	options_previewResultsDiv.deferredloading = true;
+  
+
+$.struts2_jquery.binds = $.struts2_jquery.binds.filter(bind => bind !== 'previewResultsDiv');
+jQuery.struts2_jquery.bind(jQuery('#previewResultsDiv'),options_previewResultsDiv);
+ });  
+</script>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Modal: search a cinema -->
+
+
+		<!-- Breadcrumb -->
+		<div class="breadcrumb-path d-none d-md-block">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-md-10 offset-md-1">
+						
+						<a href="/" class="bc-link bc-home"><i class="icon-retour"></i></a>
+
+						<a href="/" class="bc-link text-uppercase d-none d-md-inline-block">Accueil</a>
+
+						<span class="bc-separator d-none d-md-inline-block">/</span>
+
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Breadcrumb -->
+
+		<!-- Section: accepting cinemas -->
+		<section id="accepting-cinemas">
+			<div class="wide-container">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-md-10 offset-md-1">
+							
+						</div>
+					</div>
+				</div>
+
+				
+				
+					<div class="row group-accordion">
+						<div class="container">
+							<div class="col-md-10 offset-md-1 text-uppercase">
+								<h2 class="color--dark-blue">
+									Paris
+								</h2>
+							</div>
+						</div>
+
+						<div class="component--accordion-links accordion-minimal wide-container">
+							
+								<li class="accordion-item item--type-cinema no-bullets">
+									<div class="container">
+										<div class="col-md-10 offset-md-1 text-uppercase">
+											<a href="#classic-r1" role="button" aria-expanded="false" aria-controls="classic-r1" class="accordion-title color--main-blue d-flex align-items-center collapsed" data-toggle="collapse">
+												<span class="text-uppercase">
+													Cinémas UGC
+												</span>
+												<i class="icon-listederoulante-down"></i>
+											</a>
+										</div>
+									</div>
+
+									<div class="accordion-content row">
+										<div class="container">
+											<div class="row">
+												<div class="col-md-10 offset-md-1">
+													<div class="row collapse" id="classic-r1">
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-les-halles.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Les Halles</div>
+                <div class="color--blue-grey">
+                    Forum des Halles - Niveau -3<br>
+                    75001&nbsp;PARIS
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-bercy.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Bercy</div>
+                <div class="color--blue-grey">
+                    2, cour Saint Emilion<br>
+                    75012&nbsp;PARIS
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-maillot.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Maillot</div>
+                <div class="color--blue-grey">
+                    2, place de la Porte Maillot - Palais des Congr&egrave;s - Niveau -1<br>
+                    75017&nbsp;PARIS
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-montparnasse.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Montparnasse</div>
+                <div class="color--blue-grey">
+                    83, boulevard du Montparnasse<br>
+                    75006&nbsp;PARIS
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-rotonde.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Rotonde</div>
+                <div class="color--blue-grey">
+                    103, boulevard du Montparnasse<br>
+                    75006&nbsp;PARIS
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-odeon.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Od&eacute;on</div>
+                <div class="color--blue-grey">
+                    124, boulevard Saint-Germain<br>
+                    75006&nbsp;PARIS
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-danton.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Danton</div>
+                <div class="color--blue-grey">
+                    99, boulevard Saint-Germain<br>
+                    75006&nbsp;PARIS
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-lyon-bastille.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Lyon Bastille</div>
+                <div class="color--blue-grey">
+                    12, rue de Lyon<br>
+                    75012&nbsp;PARIS
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-gobelins.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Gobelins</div>
+                <div class="color--blue-grey">
+                    66 bis, avenue des Gobelins<br>
+                    75013&nbsp;PARIS
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-opera.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Op&eacute;ra</div>
+                <div class="color--blue-grey">
+                    32, boulevard des Italiens<br>
+                    75009&nbsp;PARIS
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-paris-19.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Paris 19</div>
+                <div class="color--blue-grey">
+                    166, Boulevard Macdonald<br>
+                    75019&nbsp;PARIS
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+							
+
+							
+								<li class="accordion-item item--type-cinema no-bullets">
+									<div class="container">
+										<div class="col-md-10 offset-md-1 text-uppercase">
+											<a href="#partner-r1" role="button" aria-expanded="false" aria-controls="partner-r1" class="accordion-title color--main-blue d-flex align-items-center collapsed" data-toggle="collapse">
+												<span class="text-uppercase">
+													Cinémas partenaires
+												</span>
+												<i class="icon-listederoulante-down"></i>
+											</a>
+										</div>
+									</div>
+									<div class="accordion-content row">
+										<div class="container">
+											<div class="row">
+												<div class="col-md-10 offset-md-1">
+													<div class="row collapse" id="partner-r1">
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">MK2 BEAUBOURG</div>
+            <div class="color--blue-grey">
+                50, rue Rambuteau<br>
+                75003&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">MK2 ODEON (C&Ocirc;T&Eacute; ST GERMAIN)</div>
+            <div class="color--blue-grey">
+                113, boulevard Saint Germain<br>
+                75005&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">MK2 ODEON (C&Ocirc;T&Eacute; ST MICHEL)</div>
+            <div class="color--blue-grey">
+                7, rue Hautefeuille<br>
+                75006&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">MK2 PARNASSE</div>
+            <div class="color--blue-grey">
+                11, rue Jules Chaplain<br>
+                75006&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">MK2 BASTILLE (C&Ocirc;T&Eacute; BEAUMARCHAIS)</div>
+            <div class="color--blue-grey">
+                4, boulevard Beaumarchais<br>
+                75011&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">MK2 BASTILLE (C&Ocirc;T&Eacute; FG SAINT ANTOINE)</div>
+            <div class="color--blue-grey">
+                5 rue du Faubourg Saint Antoine<br>
+                75011&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">MK2 NATION</div>
+            <div class="color--blue-grey">
+                133, boulevard Diderot<br>
+                75012&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">MK2 BIBLIOTHEQUE</div>
+            <div class="color--blue-grey">
+                128/162, avenue de France<br>
+                75013&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">MK2 QUAI DE LOIRE</div>
+            <div class="color--blue-grey">
+                7, quai de Loire<br>
+                75019&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">MK2 QUAI DE SEINE</div>
+            <div class="color--blue-grey">
+                14, quai de la Seine<br>
+                75019&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">MK2 GAMBETTA</div>
+            <div class="color--blue-grey">
+                6, rue Belgrand<br>
+                75020&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE GRAND REX - LE REX</div>
+            <div class="color--blue-grey">
+                1, faubourg Poissonni&egrave;re<br>
+                75002&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LUMINOR HOTEL DE VILLE</div>
+            <div class="color--blue-grey">
+                20, rue du Temple<br>
+                75004&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CINEMA DU PANTHEON</div>
+            <div class="color--blue-grey">
+                13, rue Victor Cousin<br>
+                75005&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">&Eacute;COLES CIN&Eacute;MA CLUB</div>
+            <div class="color--blue-grey">
+                25, rue des Ecoles<br>
+                75005&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">&Eacute;P&Eacute;E DE BOIS</div>
+            <div class="color--blue-grey">
+                100 rue Mouffetard<br>
+                75005&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">ESPACE SAINT MICHEL</div>
+            <div class="color--blue-grey">
+                7, place Saint Michel<br>
+                75005&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LA FILMOTHEQUE QUARTIER LATIN</div>
+            <div class="color--blue-grey">
+                9, rue Champollion<br>
+                75005&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE CHAMPO</div>
+            <div class="color--blue-grey">
+                51, rue des &eacute;coles<br>
+                75005&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE GRAND ACTION</div>
+            <div class="color--blue-grey">
+                5, rue des Ecoles<br>
+                75005&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE REFLET MEDICIS</div>
+            <div class="color--blue-grey">
+                3/7, rue Champollion<br>
+                75005&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">STUDIO GALANDE</div>
+            <div class="color--blue-grey">
+                42 Rue Galande<br>
+                75005&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">STUDIO DES URSULINES</div>
+            <div class="color--blue-grey">
+                10 Rue des Ursulines<br>
+                75005&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CHRISTINE CIN&Eacute;MA CLUB</div>
+            <div class="color--blue-grey">
+                4 rue Christine<br>
+                75006&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">L'ARLEQUIN</div>
+            <div class="color--blue-grey">
+                76, rue de Rennes<br>
+                75006&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE LUCERNAIRE</div>
+            <div class="color--blue-grey">
+                53 rue Notre Dame des Champs<br>
+                75006&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE NOUVEL ODEON</div>
+            <div class="color--blue-grey">
+                6, rue de l'Ecole de M&eacute;decine<br>
+                75006&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE SAINT-ANDR&Eacute; DES ARTS</div>
+            <div class="color--blue-grey">
+                30 rue Saint Andr&eacute; des arts<br>
+                75006&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LES 3 LUXEMBOURG</div>
+            <div class="color--blue-grey">
+                67, rue Monsieur-le-Prince<br>
+                75006&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE SAINT GERMAIN DES PR&Eacute;S</div>
+            <div class="color--blue-grey">
+                22 Rue Guillaume Apollinaire<br>
+                75006&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">JEU DE PAUME</div>
+            <div class="color--blue-grey">
+                1 Place de la Concorde<br>
+                75008&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE BALZAC</div>
+            <div class="color--blue-grey">
+                1, rue Balzac<br>
+                75008&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE LINCOLN</div>
+            <div class="color--blue-grey">
+                14, rue Lincoln<br>
+                75008&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">PUBLICIS</div>
+            <div class="color--blue-grey">
+                133, avenue des Champs-Elys&eacute;es<br>
+                75008&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">5 CAUMARTIN</div>
+            <div class="color--blue-grey">
+                101, rue Saint Lazare<br>
+                75009&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">MAX LINDER</div>
+            <div class="color--blue-grey">
+                24, boulevard Poissonni&egrave;re<br>
+                75009&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">L'ARCHIPEL</div>
+            <div class="color--blue-grey">
+                17, boulevard de Strasbourg<br>
+                75010&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE BRADY</div>
+            <div class="color--blue-grey">
+                39, boulevard de Strasbourg<br>
+                75010&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE LOUXOR</div>
+            <div class="color--blue-grey">
+                170, boulevard de Magenta<br>
+                75010&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE MAJESTIC BASTILLE</div>
+            <div class="color--blue-grey">
+                4, boulevard Richard Lenoir<br>
+                75011&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">L'ESCURIAL</div>
+            <div class="color--blue-grey">
+                11, boulevard du Port-Royal<br>
+                75013&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">L'entrep&ocirc;t</div>
+            <div class="color--blue-grey">
+                7 Rue Francis de Pressens&eacute;<br>
+                75014&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LES 7 PARNASSIENS</div>
+            <div class="color--blue-grey">
+                98 Boulevard du Montparnasse<br>
+                75014&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CHAPLIN DENFERT</div>
+            <div class="color--blue-grey">
+                24 Place Denfert Rochereau<br>
+                75014&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CHAPLIN SAINT LAMBERT</div>
+            <div class="color--blue-grey">
+                6 Rue P&eacute;clet<br>
+                75015&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">MAJESTIC PASSY</div>
+            <div class="color--blue-grey">
+                18 Rue de Passy,<br>
+                75016&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CINEMA DES CINEASTES</div>
+            <div class="color--blue-grey">
+                7, avenue de Clichy<br>
+                75017&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">MAC MAHON</div>
+            <div class="color--blue-grey">
+                5, avenue Mac Mahon<br>
+                75017&nbsp;PARIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+							
+						</div>
+					</div>
+				
+					<div class="row group-accordion">
+						<div class="container">
+							<div class="col-md-10 offset-md-1 text-uppercase">
+								<h2 class="color--dark-blue">
+									R&eacute;gion parisienne
+								</h2>
+							</div>
+						</div>
+
+						<div class="component--accordion-links accordion-minimal wide-container">
+							
+								<li class="accordion-item item--type-cinema no-bullets">
+									<div class="container">
+										<div class="col-md-10 offset-md-1 text-uppercase">
+											<a href="#classic-r2" role="button" aria-expanded="false" aria-controls="classic-r2" class="accordion-title color--main-blue d-flex align-items-center collapsed" data-toggle="collapse">
+												<span class="text-uppercase">
+													Cinémas UGC
+												</span>
+												<i class="icon-listederoulante-down"></i>
+											</a>
+										</div>
+									</div>
+
+									<div class="accordion-content row">
+										<div class="container">
+											<div class="row">
+												<div class="col-md-10 offset-md-1">
+													<div class="row collapse" id="classic-r2">
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-la-defense.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; La D&eacute;fense </div>
+                <div class="color--blue-grey">
+                    Centre Commercial Les Quatre Temps<br>
+                    92092&nbsp;PARIS-LA-DEFENSE
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-issy-les-moulineaux.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Issy-les-Moulineaux</div>
+                <div class="color--blue-grey">
+                    8 Promenade C&oelig;ur de Ville<br>
+                    92130&nbsp;Issy-les-Moulineaux
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-rosny.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Rosny</div>
+                <div class="color--blue-grey">
+                    Centre Commercial Rosny 2 - 16, rue Conrad Adenauer<br>
+                    93110&nbsp;ROSNY SOUS BOIS
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-o-parinor.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; O Parinor </div>
+                <div class="color--blue-grey">
+                    Centre Commercial O Parinor Le Haut de Galy   <br>
+                    93600&nbsp;AULNAY SOUS BOIS
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-creteil.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Cr&eacute;teil</div>
+                <div class="color--blue-grey">
+                    Centre Commercial Cr&eacute;teil Soleil <br>
+                    94000&nbsp;CRETEIL
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-noisy-le-grand.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Noisy-le-Grand</div>
+                <div class="color--blue-grey">
+                    Centre Commercial Arcades BP200<br>
+                    93193&nbsp;NOISY-LE-GRAND
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-cergy-le-haut.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Cergy-le-Haut</div>
+                <div class="color--blue-grey">
+                    8, place des 3 Gares<br>
+                    95800&nbsp;CERGY-LE-HAUT
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-enghien.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Enghien</div>
+                <div class="color--blue-grey">
+                    38, rue du G&eacute;n&eacute;ral de Gaulle<br>
+                    95880&nbsp;ENGHIEN-LES-BAINS
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-velizy.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; V&eacute;lizy</div>
+                <div class="color--blue-grey">
+                    Centre Commercial R&eacute;gional V&eacute;lizy 2<br>
+                    78140&nbsp;VELIZY VILLACOUBLAY
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-parly.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Parly</div>
+                <div class="color--blue-grey">
+                    2 Avenue Charles de Gaulle<br>
+                    78150&nbsp;LE CHESNAY
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-sqy-ouest.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; SQY Ouest</div>
+                <div class="color--blue-grey">
+                    1, avenue de la Source de la Bi&egrave;vre<br>
+                    78180&nbsp;MONTIGNY-LE-BRETONNEUX
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-roxane.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Roxane</div>
+                <div class="color--blue-grey">
+                    6 Rue Saint-Simon <br>
+                    78000&nbsp;VERSAILLES
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cyrano.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cyrano</div>
+                <div class="color--blue-grey">
+                    7 Rue Rameau <br>
+                    78000&nbsp;VERSAILLES
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-plaisir.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Plaisir</div>
+                <div class="color--blue-grey">
+                    Centre Commercial Mon Grand Plaisir - 1170 Avenue de Saint-Germain<br>
+                    78370&nbsp;PLAISIR
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-le-central.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">Le Central</div>
+                <div class="color--blue-grey">
+                    Square de la Mairie<br>
+                    91190&nbsp;GIF SUR YVETTE
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-c2l-saint-germain.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">C2L Saint Germain</div>
+                <div class="color--blue-grey">
+                    25-27-29 rue du Vieux March&eacute;<br>
+                    78100&nbsp;SAINT GERMAIN EN LAYE
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-le-cin-hoche.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">Le Cin'Hoche</div>
+                <div class="color--blue-grey">
+                    6 rue Hoche<br>
+                    78500&nbsp;SARTROUVILLE
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-c2l-poissy.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">C2L Poissy</div>
+                <div class="color--blue-grey">
+                    112 Rue du G&eacute;n&eacute;ral de Gaulle<br>
+                    78300&nbsp;POISSY
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-le-majestic.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Le Majestic</div>
+                <div class="color--blue-grey">
+                    11 Place Henri IV <br>
+                    77100&nbsp;MEAUX
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+														
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+							
+
+							
+								<li class="accordion-item item--type-cinema no-bullets">
+									<div class="container">
+										<div class="col-md-10 offset-md-1 text-uppercase">
+											<a href="#partner-r2" role="button" aria-expanded="false" aria-controls="partner-r2" class="accordion-title color--main-blue d-flex align-items-center collapsed" data-toggle="collapse">
+												<span class="text-uppercase">
+													Cinémas partenaires
+												</span>
+												<i class="icon-listederoulante-down"></i>
+											</a>
+										</div>
+									</div>
+									<div class="accordion-content row">
+										<div class="container">
+											<div class="row">
+												<div class="col-md-10 offset-md-1">
+													<div class="row collapse" id="partner-r2">
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CINEMA LE STUDIO</div>
+            <div class="color--blue-grey">
+                2 rue Edouard Poisson<br>
+                93300&nbsp;AUBERVILLIERS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CINEMA JACQUES PREVERT</div>
+            <div class="color--blue-grey">
+                134 rue Anatole France<br>
+                93600&nbsp;AULNAY SOUS BOIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LA PLEIADE</div>
+            <div class="color--blue-grey">
+                12, avenue Cousin de M&eacute;ricourt<br>
+                94230&nbsp;CACHAN
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CIN&Eacute;MA RUTEBEUF</div>
+            <div class="color--blue-grey">
+                16/18 All&eacute;e L&eacute;on Gambetta<br>
+                92110&nbsp;CLICHY
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CIN&Eacute;MA ABEL GANCE</div>
+            <div class="color--blue-grey">
+                184 Bd Saint-Denis<br>
+                92400&nbsp;COURBEVOIE
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LOUIS DAQUIN</div>
+            <div class="color--blue-grey">
+                Place Gabriel P&eacute;ri - 16 mail Debr&eacute; Berhan<br>
+                93150&nbsp;LE BLANC-MESNIL
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CENTRE DES BORDS DE MARNE</div>
+            <div class="color--blue-grey">
+                2 Rue de la Prairie<br>
+                94170&nbsp;LE PERREUX-SUR-MARNE
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">JEAN MARAIS</div>
+            <div class="color--blue-grey">
+                59 boulevard Carnot<br>
+                78110&nbsp;LE V&Eacute;SINET
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">L'ATALANTE</div>
+            <div class="color--blue-grey">
+                48 rue du Prieur&eacute;<br>
+                78600&nbsp;MAISONS-LAFFITTE
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE FONTENELLE</div>
+            <div class="color--blue-grey">
+                10, rue Carnot (place de la Gare)<br>
+                78160&nbsp;MARLY-LE-ROI
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CONFLUENCES MENNECY</div>
+            <div class="color--blue-grey">
+                ZAC Montvrain II<br>
+                91540&nbsp;MENNECY
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CINEMASSY</div>
+            <div class="color--blue-grey">
+                Place de France<br>
+                91300&nbsp;MASSY
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CIN&Eacute;MA L'EDEN</div>
+            <div class="color--blue-grey">
+                5 rue de Pontoise<br>
+                95160&nbsp;MONTMORENCY
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE BIJOU</div>
+            <div class="color--blue-grey">
+                4, place de la Lib&eacute;ration<br>
+                93160&nbsp;NOISY LE GRAND
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">ARIEL RUEIL</div>
+            <div class="color--blue-grey">
+                99, avenue Paul Doumer<br>
+                92500&nbsp;RUEIL MALMAISON
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">ARIEL HAUTS DE RUEIL</div>
+            <div class="color--blue-grey">
+                58, avenue de Fouilleuse<br>
+                92500&nbsp;RUEIL MALMAISON
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LES 3 PIERROTS</div>
+            <div class="color--blue-grey">
+                6 Rue du Mont Val&eacute;rien<br>
+                92210&nbsp;SAINT-CLOUD
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LES 4 DELTA</div>
+            <div class="color--blue-grey">
+                81 bis avenue du Bac<br>
+                94110&nbsp;SAINT-MAUR-DES-FOSS&Eacute;S
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">L&rsquo;&Eacute;CRAN</div>
+            <div class="color--blue-grey">
+                14 Passage de l'Aqueduc<br>
+                93200&nbsp;SAINT-DENIS
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE LIDO</div>
+            <div class="color--blue-grey">
+                Place Jacques Tati &ndash; 70 avenue de la R&eacute;publique<br>
+                94100&nbsp;SAINT-MAUR-DES-FOSS&Eacute;S
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CINEMA ESPACE 1789</div>
+            <div class="color--blue-grey">
+                2-4, rue Alexandre-Bachelet<br>
+                93400&nbsp;SAINT-OUEN
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE CAPITOLE</div>
+            <div class="color--blue-grey">
+                3, rue Ledru-Rollin<br>
+                92150&nbsp;SURESNES
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">L'ANTARES</div>
+            <div class="color--blue-grey">
+                1 Place du C&oelig;ur Battant<br>
+                95490&nbsp;VAUREAL
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">3 CINES ROBESPIERRE</div>
+            <div class="color--blue-grey">
+                19 avenue Maximilien Robespierre<br>
+                94400&nbsp;VITRY SUR SEINE
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+															
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CONFLUENCES VARENNES</div>
+            <div class="color--blue-grey">
+                Espace commercial du Br&eacute;au<br>
+                77130&nbsp;VARENNES-SUR-SEINE
+            </div>
+        </div>
+    </div>
+</div>
+
+														
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+							
+						</div>
+					</div>
+				
+				
+
+				
+				
+					<div class="row group-accordion">
+						<div class="container">
+							<div class="col-md-10 offset-md-1 text-uppercase">
+								<h2 class="color--dark-blue">
+									Province
+								</h2>
+							</div>
+						</div>
+
+						<div class="component--accordion-links accordion-minimal wide-container">
+							<ul class="accordion list-unstyled">
+								
+									<li class="accordion-item item--type-cinema no-bullets">
+										<div class="container">
+											<div class="col-md-10 offset-md-1 text-uppercase">
+												<a href="#region-3" role="button" aria-expanded="false" aria-controls="region-3" class="accordion-title color--main-blue d-flex align-items-center collapsed" data-toggle="collapse">
+													<span class="text-uppercase">Bordeaux</span>
+													<i class="icon-listederoulante-down"></i>
+												</a>
+											</div>
+										</div>
+
+										<div class="accordion-content row">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-10 offset-md-1">
+														<div class="row collapse" id="region-3">
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-bordeaux-gambetta.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Bordeaux Gambetta</div>
+                <div class="color--blue-grey">
+                    13-15, rue Georges Bonnac<br>
+                    33000&nbsp;BORDEAUX
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-bassins-a-flot.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Bassins &agrave; Flot</div>
+                <div class="color--blue-grey">
+                    6 quai Virginie H&eacute;riot, Bassins N&deg;2<br>
+                    33300&nbsp;BORDEAUX
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-talence.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Talence</div>
+                <div class="color--blue-grey">
+                    All&eacute;e du 7&egrave;me art<br>
+                    33400&nbsp;TALENCE
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+															
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">GRAND &Eacute;CRAN ARCACHON</div>
+            <div class="color--blue-grey">
+                9 bis avenue Gambetta<br>
+                33120&nbsp;ARCACHON
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">GRAND ECRAN LANGON</div>
+            <div class="color--blue-grey">
+                Lieu-dit Pied Mourteau, Zone de Loisirs Family Place<br>
+                33210&nbsp;LANGON
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">GRAND &Eacute;CRAN LA TESTE DE BUCH</div>
+            <div class="color--blue-grey">
+                Zone Commerciale Cap Oc&eacute;an<br>
+                33260&nbsp;LA TESTE DE BUCH
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">GRAND &Eacute;CRAN LIBOURNE</div>
+            <div class="color--blue-grey">
+                56 avenue Gallieni<br>
+                33500&nbsp;LIBOURNE
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CINEMA SAINTE EULALIE</div>
+            <div class="color--blue-grey">
+                Parvis des Fr&egrave;res Lumi&egrave;re, 26 Rue Adrien Piquet<br>
+                33560&nbsp;SAINTE-EULALIE
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CIN&Eacute;MA LA LANTERNE</div>
+            <div class="color--blue-grey">
+                151 Bd Albert 1er<br>
+                33130&nbsp;B&Egrave;GLES
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								
+									<li class="accordion-item item--type-cinema no-bullets">
+										<div class="container">
+											<div class="col-md-10 offset-md-1 text-uppercase">
+												<a href="#region-4" role="button" aria-expanded="false" aria-controls="region-4" class="accordion-title color--main-blue d-flex align-items-center collapsed" data-toggle="collapse">
+													<span class="text-uppercase">Caen</span>
+													<i class="icon-listederoulante-down"></i>
+												</a>
+											</div>
+										</div>
+
+										<div class="accordion-content row">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-10 offset-md-1">
+														<div class="row collapse" id="region-4">
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-mondeville.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Mondeville</div>
+                <div class="color--blue-grey">
+                    Centre Commercial Mondeville 2 - Route Nationale 13<br>
+                    14120&nbsp;MONDEVILLE
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+															
+															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								
+									<li class="accordion-item item--type-cinema no-bullets">
+										<div class="container">
+											<div class="col-md-10 offset-md-1 text-uppercase">
+												<a href="#region-5" role="button" aria-expanded="false" aria-controls="region-5" class="accordion-title color--main-blue d-flex align-items-center collapsed" data-toggle="collapse">
+													<span class="text-uppercase">Lille M&eacute;tropole</span>
+													<i class="icon-listederoulante-down"></i>
+												</a>
+											</div>
+										</div>
+
+										<div class="accordion-content row">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-10 offset-md-1">
+														<div class="row collapse" id="region-5">
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-lille.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Lille</div>
+                <div class="color--blue-grey">
+                    40, rue de B&eacute;thune<br>
+                    59000&nbsp;LILLE
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-villeneuve-d-ascq.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Villeneuve d'Ascq</div>
+                <div class="color--blue-grey">
+                    H&eacute;ronparc - 21, avenue de l'Avenir<br>
+                    59650&nbsp;VILLENEUVE D'ASCQ
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-le-metropole.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">Le M&eacute;tropole</div>
+                <div class="color--blue-grey">
+                    26, rue des ponts de Comines<br>
+                    59000&nbsp;LILLE
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-le-majestic.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">Le Majestic</div>
+                <div class="color--blue-grey">
+                    54 rue de B&eacute;thune <br>
+                    59000&nbsp;LILLE
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-les-ecrans.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">Les &Eacute;crans</div>
+                <div class="color--blue-grey">
+                    4 promenade de la Fraternit&eacute; &ndash; Centre commercial Saint Christophe<br>
+                    59200&nbsp;TOURCOING
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+															
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">KINO CIN&Eacute;</div>
+            <div class="color--blue-grey">
+                Rue du Barreau<br>
+                59650&nbsp;VILLENEUVE D'ASCQ
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE PONT DES ARTS</div>
+            <div class="color--blue-grey">
+                7 place Doumer<br>
+                59700&nbsp;MARCQ EN BAROEUL
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								
+									<li class="accordion-item item--type-cinema no-bullets">
+										<div class="container">
+											<div class="col-md-10 offset-md-1 text-uppercase">
+												<a href="#region-12" role="button" aria-expanded="false" aria-controls="region-12" class="accordion-title color--main-blue d-flex align-items-center collapsed" data-toggle="collapse">
+													<span class="text-uppercase">Limoges</span>
+													<i class="icon-listederoulante-down"></i>
+												</a>
+											</div>
+										</div>
+
+										<div class="accordion-content row">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-10 offset-md-1">
+														<div class="row collapse" id="region-12">
+															
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">GRAND ECRAN ESTER</div>
+            <div class="color--blue-grey">
+                260, rue Aristide Briand<br>
+                87100&nbsp;LIMOGES
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">HORIZON GRAND ECRAN</div>
+            <div class="color--blue-grey">
+                9 - 11, Place Denis Dussoubs<br>
+                87100&nbsp;LIMOGES
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE LIDO</div>
+            <div class="color--blue-grey">
+                3, avenue du G&eacute;n&eacute;ral de Gaulle<br>
+                87000&nbsp;LIMOGES
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								
+									<li class="accordion-item item--type-cinema no-bullets">
+										<div class="container">
+											<div class="col-md-10 offset-md-1 text-uppercase">
+												<a href="#region-6" role="button" aria-expanded="false" aria-controls="region-6" class="accordion-title color--main-blue d-flex align-items-center collapsed" data-toggle="collapse">
+													<span class="text-uppercase">Lyon</span>
+													<i class="icon-listederoulante-down"></i>
+												</a>
+											</div>
+										</div>
+
+										<div class="accordion-content row">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-10 offset-md-1">
+														<div class="row collapse" id="region-6">
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-internationale-lyon.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Internationale</div>
+                <div class="color--blue-grey">
+                    Cit&eacute; Internationale - 80, quai Charles de Gaulle<br>
+                    69006&nbsp;LYON
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-confluence.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Confluence</div>
+                <div class="color--blue-grey">
+                    P&ocirc;le de loisirs de commerces - 112, cours Charlemagne<br>
+                    69002&nbsp;LYON
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-astoria.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Astoria</div>
+                <div class="color--blue-grey">
+                    31, cours Vitton<br>
+                    69006&nbsp;LYON
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-part-dieu.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Part-Dieu</div>
+                <div class="color--blue-grey">
+                    Centre Commercial La Part-Dieu - Niveau 3 - Les Tables<br>
+                    69003&nbsp;LYON
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+															
+															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								
+									<li class="accordion-item item--type-cinema no-bullets">
+										<div class="container">
+											<div class="col-md-10 offset-md-1 text-uppercase">
+												<a href="#region-7" role="button" aria-expanded="false" aria-controls="region-7" class="accordion-title color--main-blue d-flex align-items-center collapsed" data-toggle="collapse">
+													<span class="text-uppercase">Nancy</span>
+													<i class="icon-listederoulante-down"></i>
+												</a>
+											</div>
+										</div>
+
+										<div class="accordion-content row">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-10 offset-md-1">
+														<div class="row collapse" id="region-7">
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-nancy-saint-jean.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Nancy Saint Jean</div>
+                <div class="color--blue-grey">
+                    54, rue Saint Jean<br>
+                    54000&nbsp;NANCY
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-ludres.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Ludres</div>
+                <div class="color--blue-grey">
+                    350, rue des Mazurots<br>
+                    54710&nbsp;LUDRES
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+															
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CAMEO SAINT SEBASTIEN</div>
+            <div class="color--blue-grey">
+                6 rue L&eacute;opold Lallement<br>
+                54000&nbsp;NANCY
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CAMEO COMMANDERIE</div>
+            <div class="color--blue-grey">
+                16 rue de la Commanderie<br>
+                54000&nbsp;NANCY
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE ROYAL</div>
+            <div class="color--blue-grey">
+                18, rue Saint Livier<br>
+                54130&nbsp;SAINT MAX
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								
+									<li class="accordion-item item--type-cinema no-bullets">
+										<div class="container">
+											<div class="col-md-10 offset-md-1 text-uppercase">
+												<a href="#region-8" role="button" aria-expanded="false" aria-controls="region-8" class="accordion-title color--main-blue d-flex align-items-center collapsed" data-toggle="collapse">
+													<span class="text-uppercase">Nantes</span>
+													<i class="icon-listederoulante-down"></i>
+												</a>
+											</div>
+										</div>
+
+										<div class="accordion-content row">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-10 offset-md-1">
+														<div class="row collapse" id="region-8">
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-atlantis.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Atlantis</div>
+                <div class="color--blue-grey">
+                    P&ocirc;le commercial Atlantis - Place Jean Bart<br>
+                    44800&nbsp;SAINT HERBLAIN
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+															
+															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								
+									<li class="accordion-item item--type-cinema no-bullets">
+										<div class="container">
+											<div class="col-md-10 offset-md-1 text-uppercase">
+												<a href="#region-10" role="button" aria-expanded="false" aria-controls="region-10" class="accordion-title color--main-blue d-flex align-items-center collapsed" data-toggle="collapse">
+													<span class="text-uppercase">Strasbourg</span>
+													<i class="icon-listederoulante-down"></i>
+												</a>
+											</div>
+										</div>
+
+										<div class="accordion-content row">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-10 offset-md-1">
+														<div class="row collapse" id="region-10">
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-cine-cite-strasbourg.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Cin&eacute; Cit&eacute; Strasbourg</div>
+                <div class="color--blue-grey">
+                    25, avenue du Rhin<br>
+                    67100&nbsp;STRASBOURG
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+															
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CIN&Eacute;MA VOX</div>
+            <div class="color--blue-grey">
+                17, rue des Francs Bourgeois<br>
+                67000&nbsp;STRASBOURG
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE COSMOS</div>
+            <div class="color--blue-grey">
+                3, rue des Francs-Bourgeois<br>
+                67000&nbsp;STRASBOURG
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE STAR</div>
+            <div class="color--blue-grey">
+                27, rue du Jeu des Enfants<br>
+                67000&nbsp;STRASBOURG
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE STAR SAINT EXUPERY</div>
+            <div class="color--blue-grey">
+                18, rue du 22 Novembre<br>
+                67000&nbsp;STRASBOURG
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								
+									<li class="accordion-item item--type-cinema no-bullets">
+										<div class="container">
+											<div class="col-md-10 offset-md-1 text-uppercase">
+												<a href="#region-11" role="button" aria-expanded="false" aria-controls="region-11" class="accordion-title color--main-blue d-flex align-items-center collapsed" data-toggle="collapse">
+													<span class="text-uppercase">Toulouse</span>
+													<i class="icon-listederoulante-down"></i>
+												</a>
+											</div>
+										</div>
+
+										<div class="accordion-content row">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-10 offset-md-1">
+														<div class="row collapse" id="region-11">
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <a href="cinema-ugc-montaudran.html">
+        <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+            <div class="item--cinema-content text-center">
+                <div class="color--white text-uppercase">UGC Montaudran</div>
+                <div class="color--blue-grey">
+                    Place Marcel Bouilloux-Lafont<br>
+                    31400&nbsp;TOULOUSE
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+															
+															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								
+									<li class="accordion-item item--type-cinema no-bullets">
+										<div class="container">
+											<div class="col-md-10 offset-md-1 text-uppercase">
+												<a href="#region-13" role="button" aria-expanded="false" aria-controls="region-13" class="accordion-title color--main-blue d-flex align-items-center collapsed" data-toggle="collapse">
+													<span class="text-uppercase">Apt</span>
+													<i class="icon-listederoulante-down"></i>
+												</a>
+											</div>
+										</div>
+
+										<div class="accordion-content row">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-10 offset-md-1">
+														<div class="row collapse" id="region-13">
+															
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">LE C&Eacute;SAR</div>
+            <div class="color--blue-grey">
+                rue Scudery<br>
+                84400&nbsp;APT
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								
+									<li class="accordion-item item--type-cinema no-bullets">
+										<div class="container">
+											<div class="col-md-10 offset-md-1 text-uppercase">
+												<a href="#region-14" role="button" aria-expanded="false" aria-controls="region-14" class="accordion-title color--main-blue d-flex align-items-center collapsed" data-toggle="collapse">
+													<span class="text-uppercase">Bar-Le-Duc</span>
+													<i class="icon-listederoulante-down"></i>
+												</a>
+											</div>
+										</div>
+
+										<div class="accordion-content row">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-10 offset-md-1">
+														<div class="row collapse" id="region-14">
+															
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CONFLUENCES BAR-LE-DUC</div>
+            <div class="color--blue-grey">
+                8 Av. du 94&Egrave;ME Ri<br>
+                55000&nbsp;BAR-LE-DUC
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								
+									<li class="accordion-item item--type-cinema no-bullets">
+										<div class="container">
+											<div class="col-md-10 offset-md-1 text-uppercase">
+												<a href="#region-16" role="button" aria-expanded="false" aria-controls="region-16" class="accordion-title color--main-blue d-flex align-items-center collapsed" data-toggle="collapse">
+													<span class="text-uppercase">Sabl&eacute;-Sur-Sarthe</span>
+													<i class="icon-listederoulante-down"></i>
+												</a>
+											</div>
+										</div>
+
+										<div class="accordion-content row">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-10 offset-md-1">
+														<div class="row collapse" id="region-16">
+															
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CONFLUENCES SABLE SUR SARTHE</div>
+            <div class="color--blue-grey">
+                Rue Saint Denis<br>
+                72300&nbsp;SABL&Eacute;-SUR-SARTHE
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								
+									<li class="accordion-item item--type-cinema no-bullets">
+										<div class="container">
+											<div class="col-md-10 offset-md-1 text-uppercase">
+												<a href="#region-15" role="button" aria-expanded="false" aria-controls="region-15" class="accordion-title color--main-blue d-flex align-items-center collapsed" data-toggle="collapse">
+													<span class="text-uppercase">Sens</span>
+													<i class="icon-listederoulante-down"></i>
+												</a>
+											</div>
+										</div>
+
+										<div class="accordion-content row">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-10 offset-md-1">
+														<div class="row collapse" id="region-15">
+															
+															
+																
+
+
+
+
+
+<div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4 offset-lg-0 col-xl-3 offset-xl-0">
+    <div class="item--cinema bg--degraded-blue font-weight-bold d-flex align-items-center justify-content-center my-2">
+        <div class="item--cinema-content text-center">
+            <div class="color--white text-uppercase">CONFLUENCES SENS</div>
+            <div class="color--blue-grey">
+                Place Jean-Pierre<br>
+                89100&nbsp;SENS
+            </div>
+        </div>
+    </div>
+</div>
+
+															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								
+							</ul>
+						</div>
+					</div>
+				
+				
+
+				
+				
+				
+			</div>
+		</section>
+		<!-- /Section: accepting cinemas -->
+
+		<!-- Footer Main -->
+		
+
+
+
+
+
+<!-- Footer Main (non affiché pour les apps et iframe) -->
+
+    <!-- Section: footer main -->
+    <section id="footer-main">
+        
+        
+            
+        
+
+
+
+<div class="podium-banner">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+
+            <div class="col-auto text-center">
+                <img class="podium-banner-logo" src="assets/img/picto-note-certifiee.png"/>
+            </div>
+
+            <div class="col-auto text-center">
+                <div class="podium-banner-title">
+                    Classement des spectateurs UGC 2026
+                </div>
+
+                <div class="podium-banner-subtitle">
+                    Découvrez les films les plus attendus et les<br>
+                    mieux notés de l'année !
+                </div>
+
+                <a href="https://www.ugc.fr/classement-2026.html" class="podium-banner-button">
+                    JE DÉCOUVRE
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </section>
+    <!-- /Section: footer main -->
+
+    <!-- Section: player footer -->
+    <section id="player-footer" class="bg--midnight-blue"></section>
+    <!-- /Section: player footer -->
+
+
+	</main>
+
+	
+	
+		
+	
+
+
+
+
+
+
+
+
+<!-- Trailer -->
+<div class="modal fade component--modal-video" id="modal-see-video" tabindex="-1" role="dialog" aria-labelledby="modal-see-video-title" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content" style="background-color: transparent;">
+			<div class="modal-header px-0">
+				<div class="container p-0">
+					<div class="row">
+						<div class="offset-11 col-1 d-flex justify-content-end">
+							<div class="video-header bg--dark-blue">
+								<button type="button" class="close color--white m-0" data-dismiss="modal" aria-label="Fermer">
+									<span aria-hidden="true"><i class="icon-close"></i></span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-body bg--dark-blue">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-12">
+							<div class="position-relative">
+								<div class="content">
+									<div class="video-wrapper">
+										<video class="lozad" controls="controls" data-poster="">
+											Your browser does not support the video tag.
+										</video>
+
+										<div class="video-remaining">
+											Prochaine bande-annonce dans&nbsp;
+											<span class="video-remaining-seconds">x</span>
+											&nbsp;secondes
+											<span aria-hidden="true" style="margin-left: 4px; font-size: 14px;" class="video-remaining-close">
+												<i class="icon-close"></i>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-8 d-flex justify-content-start align-items-center">
+							<p class="color--white text-uppercase video-title">&nbsp;</p>
+						</div>
+						<div class="col-4 d-flex justify-content-end align-items-center">
+							<p class="color--white text-uppercase video-subtitle">&nbsp;</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /Trailer -->
+
+<!-- Footer (non affiché pour les apps et iframe) -->
+
+	<footer>
+		
+		
+			<!-- Footer useful links -->
+			<div class="footer-useful-links bg--midnight-blue">
+				<div class="container">
+					<div id="social-links-footer" class="row">
+						<div class="col-md-10 offset-md-1">
+							<ul class="list-inline text-center social-menu">
+								<li class="list-inline-item" style="margin-right:2px">
+           <a href="https://www.facebook.com/UGCcinemas" id="clickFacebook" class="color--white bg--deep-blue d-inline-block position-relative facebook" title="Cin&eacute;mas UGC sur Facebook" target="_blank">
+               <i class="icon-facebook"></i>
+               <span class="sr-only">Facebook</span>
+           </a>
+       </li>
+       <li class="list-inline-item" style="margin-right:2px">
+           <a href="https://twitter.com/ugccinemas" id="clickTwitter" class="color--white bg--deep-blue d-inline-block position-relative twitter" title="Cin&eacute;mas UGC sur Twitter" target="_blank">
+               <i class="icon-x"></i>
+               <span class="sr-only">X/Twitter</span>
+           </a>
+       </li>
+
+       <li class="list-inline-item" style="margin-right:2px">
+           <a href="https://www.instagram.com/ugccinemas/" id="clickInstagram" class="color--white bg--deep-blue d-inline-block position-relative instagram" title="Cin&eacute;mas UGC sur Instagram" target="_blank">
+               <i class="icon-instagram"></i>
+               <span class="sr-only">Instagram</span>
+           </a>
+       </li>
+       <li class="list-inline-item" style="margin-right:2px">
+           <a href="https://www.tiktok.com/@ugccinemas?lang=fr" id="clickTiktok" class="color--white bg--deep-blue d-inline-block position-relative tiktok" title="Cin&eacute;mas UGC sur Tiktok" target="_blank">
+               <i class="icon-tiktok"></i>
+               <span class="sr-only">Tiktok</span>
+           </a>
+       </li>
+       <li class="list-inline-item" style="margin-right:2px">
+           <a href="https://www.youtube.com/user/cinemasUGC/videos" id="clickYoutube" class="color--white bg--deep-blue d-inline-block position-relative youtube" title="Cin&eacute;mas UGC sur Youtube" target="_blank">
+               <i class="icon-youtube"></i>
+               <span class="sr-only">YouTube</span>
+           </a>
+       </li>
+       <li class="list-inline-item" style="margin-right:2px">
+           <a href="https://www.linkedin.com/company/ugc/" id="clickLinkedin" class="color--white bg--deep-blue d-inline-block position-relative linkedin" title="Cin&eacute;mas UGC sur LinkedIn" target="_blank">
+               <i class="icon-linkedin"></i>
+               <span class="sr-only">LinkedIn</span>
+           </a>
+       </li>
+							</ul>
+						</div>
+					</div>
+
+                    <!-- Desktop -->
+                    <div id="help-links" class="row mt-3 d-none d-md-flex">
+                        <div class="col-md-9 offset-md-1">
+                            <div class="container">
+	<div class="row  help-links-cols">
+		<!-- A PROPOS -->
+		<div class="col">
+			<h3 class="help-links-col-title">
+				À PROPOS D'UGC
+			</h3>
+
+            <ul>
+                <li><a href="https://groupeugc.com/ugc-recrute/">UGC Recrute</a></li>
+                <li><a href="https://groupeugc.com/">Groupe UGC</a></li>
+                <li><a href="https://groupeugc.com/ugc-recrute/">Politique RH du Groupe</a></li>
+            </ul>
+		</div>
+		<div class="col">
+			<h3 class="help-links-col-title">
+				&nbsp;
+			</h3>
+
+            <ul>
+                <li><a href="https://www.ugc.be">UGC Belgium</a></li>
+                <li><a href="https://www.ugc-pro.fr">UGC PRO</a></li>
+                <li><a href="https://www.ugcdistribution.fr">UGC Distribution</a></li>
+            </ul>
+		</div>
+
+		<!-- AIDE -->
+		<div class="col">
+			<h3 class="help-links-col-title">
+				AIDE & CONTACT
+			</h3>
+
+			<ul>
+				<li><a href="aide.html">Besoin d'aide ?</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<li><a href="chartespectateurs.html">Charte des spectateurs</a></li>
+			</ul>
+		</div>
+
+		<!-- LE MAG -->
+		<div class="col">
+			<h3 class="help-links-col-title">
+				LE MAG BY UGC
+			</h3>
+
+			<a href="le-mag-by-ugc.html">
+				<img
+					src="https://www.ugc.fr/dynamique/images/Footer/le-mag-by-ugc-novembre-2026.jpg"
+					alt="Le Mag"
+					class="img-fluid footer-mag-img">
+			</a>
+		</div>
+
+		<!-- APP -->
+		<div class="col footer-app-ugc">
+			<h3 class="help-links-col-title">
+				L'APPLICATION UGC
+			</h3>
+
+			<ul>
+				<li><a href="http://itunes.apple.com/fr/app/ugc-direct/id503875877?mt=8">App Store</a></li>
+				<li><a href="https://play.google.com/store/apps/details?id=air.ugc.fr.ugcdirect">Google Play Store</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile -->
+                    <div id="help-links" class="row mt-3 d-md-none">
+                        <div class="container">
+    <div class="row help-links-row mb-0">
+        <!-- A PROPOS -->
+        <div class="col-6">
+            <h3 class="help-links-col-title"> À PROPOS D'UGC </h3>
+
+            <ul>
+                <li><a href="https://groupeugc.com/ugc-recrute/">UGC Recrute</a></li>
+                <li><a href="https://groupeugc.com/">Groupe UGC</a></li>
+                <li><a href="https://groupeugc.com/ugc-recrute/">Politique RH du Groupe</a></li>
+            </ul>
+        </div>
+        <div class="col-6">
+            <h3 class="help-links-col-title">&nbsp;
+                
+            </h3>
+
+            <ul>
+                <li><a href="https://www.ugc.be">UGC Belgium</a></li>
+                <li><a href="https://www.ugc-pro.fr">UGC PRO</a></li>
+                <li><a href="https://www.ugcdistribution.fr">UGC Distribution</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row help-links-row mt-5">
+        <!-- AIDE -->
+        <div class="col-6">
+            <h3 class="help-links-col-title">
+                AIDE &amp; CONTACT
+            </h3>
+
+            <ul>
+                <li><a href="aide.html">Besoin d'aide ?</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="chartespectateurs.html">Charte des spectateurs</a></li>
+            </ul>
+        </div>
+
+        <!-- LE MAG -->
+        <div class="col-6">
+            <h3 class="help-links-col-title">LE MAG BY UGC</h3>
+            <a href="le-mag-by-ugc.html"><img src="https://www.ugc.fr/dynamique/images/Footer/le-mag-by-ugc-novembre-2026.jpg" alt="Le Mag" class="img-fluid footer-mag-img"></a>
+        </div>
+    </div>
+</div>
+                    </div>
+
+					<div id="policy-links" class="row">
+						<div class="col-md-10 offset-md-1">
+							<ul class="policy-links-list">
+								<li>
+	<a href="politique_confidentialite.html">Politique de confidentialité</a>
+</li>
+<li>
+	<a href="conditions-MonCompte.html">Conditions générales</a>
+</li>
+<li>
+	<a href="mentionslegales.html">Mentions légales</a>
+</li>
+<li>
+	<a href="#"  id="open-hagreed">Cookies</a>
+</li>
+<li>
+	<a href="/accessibilite.html">Accessibilité : non conforme</a>
+</li>
+							</ul>
+						</div>
+						<div class="col-md-1 align-self-center">
+							<span class="color--dark-blue text-center">v14.39.1-rc1</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Footer useful links -->
+		
+	</footer>
+
+<!-- /Footer -->
+
+<script  type="text/javascript" src="./js/popper.min.js?version=14.39.1-rc1" ></script>
+<script  type="text/javascript" src="./js/bootstrap.min.js?version=14.39.1-rc1" ></script>
+
+
+<script  type="text/javascript" src="./lib/slick/slick.min.js?version=14.39.1-rc1" ></script>
+
+<script  type="text/javascript" src="./lib/typeahead/typeahead.bundle.min.js?version=14.39.1-rc1" ></script>
+<script  type="text/javascript" src="./lib/typeahead/bloodhound.min.js?version=14.39.1-rc1" ></script>
+
+<script  type="text/javascript" src="./lib/stacktable/stacktable.js?version=14.39.1-rc1" ></script>
+
+<script  type="text/javascript" src="./lib/underscore/underscore-min.js?version=14.39.1-rc1" ></script>
+
+<script  type="text/javascript" src="./lib/jquery.mask.min.js?version=14.39.1-rc1" ></script>
+
+<script  type="text/javascript" src="./lib/lozad/lozad.min.js?version=14.39.1-rc1" ></script>
+
+<script  type="text/javascript" src="./lib/js.cookie/js.cookie.min.js?version=14.39.1-rc1" ></script>
+
+<script  type="text/javascript" src="./js/main.js?version=14.39.1-rc1" ></script>
+<script  type="text/javascript" src="./js/alteis.js?version=14.39.1-rc1" ></script>
+<script  type="text/javascript" src="./js/trailer.js?version=14.39.1-rc1" ></script>
+<script  type="text/javascript" src="./js/lozad.js?version=14.39.1-rc1" ></script>
+
+<script id="appsjs" type="text/javascript" src="./js/apps.js?version=14.39.1-rc1" async="" data-env="prod" data-domain="ugc.fr" data-debug="false" ></script>
+
+<script  type="text/javascript" src="./js/validation-utils.js?version=14.39.1-rc1" ></script>
+<script  type="text/javascript" src="./js/dateselect.js?version=14.39.1-rc1" ></script>
+
+<script  type="text/javascript" src="./js/pages/header.js?version=14.39.1-rc1" ></script>
+<script  type="text/javascript" src="./js/pages/maintenance.js?version=14.39.1-rc1" ></script>
+
+<script id="advertisingcampaignjs" type="text/javascript" src="./js/pages/advertising-campaign.js?version=14.39.1-rc1" data-page="3006" ></script>
+
+<!-- Scripts UGC -->
+
+<!-- /Scripts UGC -->
+
+<!-- Container Hagreed -->
+<div id="hagreed" class="hagreed"></div>
+<!-- /Container Hagreed -->
+
+</body>
+
+</html>
